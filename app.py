@@ -12,7 +12,7 @@ def congratulazioni():
 
 @app.route('/valentine_no')
 def valentine_no():
-    return render_template('index.html')  # Ricarica la pagina dopo il "No"
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
