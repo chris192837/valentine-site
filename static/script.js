@@ -11,7 +11,7 @@
 
 //         function moveButton() {
 //             if (timeLeft <= 0) {
-//                 moving = false;                               # con tasto veloce
+//                 moving = false;   
 //                 return;
 //             }
 //             const maxX = window.innerWidth - 150;
@@ -44,10 +44,10 @@
 //         function moveButton() {
 //             if (timeLeft <= 0) {
 //                 moving = false;
-//                 noBtn.style.position = 'static';  // Torna normale
+//                 noBtn.style.position = 'static'; 
 //                 return;
 //             }
-//             // Area ridotta: 300px larghezza, 200px altezza centrali
+//            
 //             const baseX = (window.innerWidth - 300) / 2;
 //             const baseY = (window.innerHeight - 200) / 2;
 //             const newX = baseX + Math.random() * 300;
@@ -56,7 +56,7 @@
 //             noBtn.style.left = newX + 'px';
 //             noBtn.style.top = newY + 'px';
 //             timeLeft--;
-//             setTimeout(moveButton, 500);  // Più lento: 500ms
+//             setTimeout(moveButton, 500); 
 //         }
 //         moveButton();
 //     });
@@ -80,12 +80,12 @@
 //         const baseX = rect.left + (rect.width - areaWidth) / 2;
 //         const baseY = rect.top + (rect.height - areaHeight) / 2;
 
-//         // Aggiungi transizione fluida
+//        
 //         noBtn.style.transition = 'left 0.8s ease-out, top 0.8s ease-out';
 //         noBtn.style.position = 'fixed';
 //         noBtn.style.zIndex = '1000';
 
-//         let movesLeft = 10;  // 10 spostamenti x 1s = 10s
+//         let movesLeft = 10;  // 10 spostamenti per 1s
 
 //         function moveSmooth() {
 //             if (movesLeft <= 0) {
@@ -100,7 +100,7 @@
 //             noBtn.style.left = newX + 'px';
 //             noBtn.style.top = newY + 'px';
 //             movesLeft--;
-//             setTimeout(moveSmooth, 1000);  // Sposta ogni 1s per fluidità
+//             setTimeout(moveSmooth, 1000); 
 //         }
 //         moveSmooth();
 //     });
@@ -118,26 +118,26 @@
 //         moving = true;
 //         const container = document.querySelector('.container');
 //         const rect = container.getBoundingClientRect();
-//         const areaWidth = 400;  // Area di movimento ridotta
+//         const areaWidth = 400;  
 //         const areaHeight = 300;
 //         const baseX = rect.left + (rect.width - areaWidth) / 2;
 //         const baseY = rect.top + (rect.height - areaHeight) / 2;
 
-//         // 1) Prendi posizione ATTUALE del bottone
-//         const btnRect = noBtn.getBoundingClientRect();  // posizione nel viewport
+//         
+//         const btnRect = noBtn.getBoundingClientRect(); 
 //         const startLeft = btnRect.left;
 //         const startTop = btnRect.top;
 
-//         // 2) Metti subito il bottone in fixed MA mantenendo la stessa posizione
+//         
 //         noBtn.style.position = 'fixed';
 //         noBtn.style.left = startLeft + 'px';
 //         noBtn.style.top = startTop + 'px';
 //         noBtn.style.zIndex = '1000';
 
-//         // 3) Aggiungi transizione fluida
+//         
 //         noBtn.style.transition = 'left 0.8s ease-out, top 0.8s ease-out';
 
-//         let movesLeft = 10;  // 10 spostamenti x 1s = 10s
+//         let movesLeft = 10; 
 
 //         function moveSmooth() {
 //             if (movesLeft <= 0) {
@@ -152,7 +152,7 @@
 //             noBtn.style.left = newX + 'px';
 //             noBtn.style.top = newY + 'px';
 //             movesLeft--;
-//             setTimeout(moveSmooth, 1000);  // Sposta ogni 1s per fluidità
+//             setTimeout(moveSmooth, 1000);  
 //         }
 //         moveSmooth();
 //     });
@@ -165,13 +165,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let endTime = null;
     let lastMoveTime = 0;
 
-    // Sposta il bottone in una nuova posizione
+    
     function moveSmooth() {
         if (!moving) return;
 
         const now = Date.now();
         if (now >= endTime) {
-            // Fine dei 15 secondi: smette di scappare
+            
             moving = false;
             noBtn.style.transition = '';
             noBtn.style.position = 'static';
@@ -211,15 +211,15 @@ document.addEventListener('DOMContentLoaded', function() {
         noBtn.style.zIndex = '1000';
         noBtn.style.transition = 'left 0.5s ease-out, top 0.5s ease-out';
 
-        moveSmooth();  // primo spostamento
+        moveSmooth();  
     });
 
-    // Muovi solo quando il mouse si avvicina, non continuamente sopra
+    // si muove solo quando il mouse si avvicina
     document.addEventListener('mousemove', function(e) {
         if (!moving) return;
 
         const now = Date.now();
-        // Limita la frequenza degli spostamenti (es. ogni 200ms)
+        // mi limita la frequenza degli spostamenti
         if (now - lastMoveTime < 200) return;
 
         const mouseX = e.clientX;
@@ -232,15 +232,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const distX = Math.abs(mouseX - centerX);
         const distY = Math.abs(mouseY - centerY);
 
-        const thresholdNear = 90;   // distanza per "troppo vicino"
-        const thresholdInside = 40; // dentro il bottone
+        const thresholdNear = 90;   
+        const thresholdInside = 40; 
 
-        // Se il mouse è molto dentro il bottone → NON muovere (evita tremolio)
+        
         if (distX < thresholdInside && distY < thresholdInside) {
             return;
         }
 
-        // Se è abbastanza vicino ma non dentro → fai scappare
+        
         if (distX < thresholdNear && distY < thresholdNear) {
             moveSmooth();
         }
