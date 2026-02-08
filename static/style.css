@@ -11,31 +11,31 @@ body {
 /* Riquadro centrale */
 .container {
     text-align: center;
-    background: #f8f9fa;      /* grigio chiaro */
+    background: #f8f9fa;     
     padding: 50px 200px 40px;
-    border-radius: 15px;      /* un po' tondo, ma rettangolare */
+    border-radius: 15px;      
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     max-width: 1000px;
 }
 
-/* Testo domanda: nero e grande */
+
 .container h1 {
     font-size: 3em;
     color: #000;
     margin-bottom: 2.5em;
 }
 
-/* Riga con i bottoni Sì / No */
+/*Riga con i bottoni*/
 .btn-row {
     display: flex;
-    justify-content: space-between;   /* uno a sx e uno a dx */
+    justify-content: space-between;  
     gap: 20px;
     max-width: 400px;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
-/* stile base pulsanti */
+
 .btn {
     padding: 15px 30px;
     font-size: 1.2em;
@@ -49,20 +49,20 @@ body {
     transform: scale(1.05);
 }
 
-/* YES rosso a sinistra */
+
 .btn-yes {
     background: #dc3545;
     color: #fff;
 }
 
-/* NO bianco a destra (quello che si muove) */
+
 .btn-no {
     background: #ffffff;
     color: #666;
     border: 2px solid #ddd;
 }
 
-/* Pagina di congratulazioni: sfondo come prima ma senza box bianco centrale */
+
 .congrats-body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -73,26 +73,26 @@ body {
     background: linear-gradient(to right, #ff9a9e, #fecfef);
 }
 
-/* Contenitore ma SENZA sfondo bianco */
+
 .congrats-container {
     text-align: center;
     color: #000;
 }
 
-/* Titolo YAY */
+
 .yay-title {
     font-size: 4em;
     font-weight: bold;
     margin-bottom: 0.2em;
 }
 
-/* Best decision ever */
+
 .yay-subtitle {
     font-size: 2em;
     margin-bottom: 1.5em;
 }
 
-/* Video responsivo centrato */
+
 .video-wrapper {
     max-width: 560px;
     margin: 0 auto 2em;
@@ -104,13 +104,13 @@ body {
     border-radius: 10px;
 }
 
-/* I love you */
+
 .love-text {
     font-size: 2em;
     margin-bottom: 1.5em;
 }
 
-/* Bottone back */
+
 .back-btn {
     background: #ffffff;
     color: #d63384;
