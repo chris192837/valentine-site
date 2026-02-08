@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my valentine? 💕</h1>
+
+        <div class="btn-row">
+            <form method="GET" action="{{ url_for('congratulazioni') }}">
+                <button type="submit" id="YES" class="btn btn-yes">YESS</button>
+            </form>
+            <form method="GET" action="{{ url_for('valentine_no') }}">
+                <button type="submit" id="NO" class="btn btn-no">NO</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
